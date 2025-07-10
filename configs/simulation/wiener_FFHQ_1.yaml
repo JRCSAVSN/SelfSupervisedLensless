@@ -1,0 +1,38 @@
+#config.yaml
+# With output normalization (0,1)
+
+data:
+#  train_data_path: "/home/yagilab/Desktop/datasets/SelfSupervisedLensless/mini_FFHQ_256/train/"
+#  test_data_path: "/home/yagilab/Desktop/datasets/SelfSupervisedLensless/mini_FFHQ_256/test/"
+  train_data_path: "/home/vieira/datasets/SelfSupervisedLensless/simulation/train/"
+  test_data_path: "/home/vieira/datasets/SelfSupervisedLensless/simulation/test/"
+  save_path: "experiments/simulation/radial/wiener_FFHQ_1/"
+  data_format: "npy"
+
+model:
+  model_type: "RecNet"
+  deconv_layer: "WienerDeconv"
+  encod_layer: "None"
+  decoder_layer: "UNet270480"
+
+deconv_layer:
+  psf: "psf/simulation/256/radial_6per.npy"
+  w: 1.0
+  lambda_: 0.000001
+
+decoder_layer:
+  none: "None"
+
+encod_layer:
+  none: "None"
+
+training:
+  batch_size: 32
+  epochs: 200
+  deconv_lr: "None"
+  encoder_lr: "None"
+  decoder_lr: 0.0001
+  device: "cuda"
+  resolution: 256
+  num_workers: 4
+  sampler_size: None

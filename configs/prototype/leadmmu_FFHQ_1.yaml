@@ -1,0 +1,40 @@
+#config.yaml
+
+data:
+  train_data_path: "/home/vieira/datasets/SelfSupervisedLensless/prototype/train/"
+  test_data_path: "/home/vieira/datasets/SelfSupervisedLensless/prototype/test/"
+  save_path: "experiments/prototype/leadmmu_FFHQ_1/"
+  data_format: "png"
+
+model:
+  model_type: "RecNet"
+  deconv_layer: "UnrolledAdmmDeconv"
+  encod_layer: "None"
+  decoder_layer: "UNet270480"
+
+deconv_layer:
+  psf: "psf/prototype/radial_6per.npy"
+  iters: 5
+  hyper_parameter:
+    # {'mu1': 5e-2, 'mu2': 1e-3, 'mu3': 1e-3, 'tau': 3e-7}
+    mu1: 0.05
+    mu2: 0.001
+    mu3: 0.001
+    tau: 0.0000003
+
+decoder_layer:
+  none: "None"
+
+encod_layer:
+  none: "None"
+
+training:
+  batch_size: 32
+  epochs: 200
+  deconv_lr: 0.0000
+  encoder_lr: "None"
+  decoder_lr: 0.0001
+  device: "cuda"
+  resolution: 300
+  num_workers: 4
+  sampler_size: None
