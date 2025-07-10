@@ -36,7 +36,7 @@ if __name__ == '__main__':
     print(config)
 
     # Check if save_path exists
-    to_save_path = config['data']['save_path'].replace('experiment/', '')
+    to_save_path = config['data']['save_path'].replace('experiments/', '')
     # to_save_path = 'unet'
     # if 'admm' in config['data']['save_path']:
     #     to_save_path += '+admm/'

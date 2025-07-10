@@ -9,7 +9,7 @@ Official repository of the paper "Self-supervised Neural Reconstructions for Len
 > __Recent advances in lensless imaging reconstruction have primarily relied on supervised neural models trained using target images captured by lensed cameras via a beam splitter. However, we argue that using reference images from a different optical system introduces bias into the reconstruction process. To mitigate this issue, we propose a self-supervised approach that leverages data-fidelity guidance, similar to deep image prior, to train neural models for single-iteration lensless reconstruction. Through simulations and prototype camera experiments, we demonstrate that combining simple convex optimization methods with a denoising UNet improves perceptual quality (LPIPS), accelerates inference compared to traditional optimization techniques, and reduces potential unwanted biases in
 the reconstruction network__
 
-![image](figs/prototype_20019.png)
+![image](figs/results.png)
 
 ---
 
@@ -60,7 +60,7 @@ Steps:
    - unet_FFHQ.yaml: for purely UNet model
 2) Run the training script passing the path to the config file:
 ```bash
-python3 train.py --config path_to_config_file
+python train.py --config path_to_config_file
 ```
 training results will be saved in the save_path field specified in the config file.
 
