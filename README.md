@@ -49,7 +49,8 @@ Steps:
      
          python scripts/create_dataset.py --data_path $data_path --psf_path $psf_path --output_path $output_path --noise_std $noise_std
      ```
-- Prototype camera: Download the dataset from [link](coming soon) (coming soon), it should have 20k training images and 1k testing images.
+- Prototype camera: Download the dataset from [link](https://drive.google.com/drive/folders/1LG-6gWBrCuhZYl7DPLXpxO2jtAu6Wk8P?usp=sharing) (coming soon), it should have 20k training images and 1k testing images.
+  - Note that the files downloaded from the link are preprocessed to the 250x250 resolution used in the paper.
 
 
 ### Training
@@ -65,12 +66,11 @@ python train.py --config path_to_config_file
 training results will be saved in the save_path field specified in the config file.
 
 ### Testing
-Execute the following command to test the trained model:
+Execute the following command to test the trained model using the same config file used for training:
 ```bash
-model="unet"
-python3 test.py --config configs/prototype/${model}_FFHQ.yaml
+python3 test.py --config path_to_config_file
 ```
-The results will be saved in the ./results/ folder within a sub-folder within a sub-folder specified in the config file's save_path field.
+The reconstructions will be saved in the ./reconstructions/ folder within a sub-folder specified in the config file's save_path field.
 
 --- 
 ## Citation
